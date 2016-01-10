@@ -41,7 +41,7 @@ ggplot(unarmed_df, aes(map_id = state_format)) +
     scale_fill_gradientn(colours=c("blue","green","yellow","red")) +
     expand_limits(x = states_map$long, y = states_map$lat) + theme_bw()
 
-unarmed_df[order(unarmed_df$percent_unarmed_state, decreasing = TRUE), ]
+unarmed_df[order(unarmed_df$percent_unarmed_state, decreasing = TRUE), ] 
 
 armed_gun <- wapo[wapo$armed == "gun", ]
 armed_gun_age <- armed_gun$age
