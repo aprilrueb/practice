@@ -2,6 +2,7 @@ wapo <- read.table("wapo.csv", sep = ",",quote = "")
 colnames(wapo) <- wapo[1, ]
 wapo = wapo[-1, ]
 
+
 ############################
 # plot a map of the percent unarmed killed by the police in each state
 
