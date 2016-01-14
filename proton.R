@@ -24,3 +24,8 @@ slap_df <- logs[slap_login, ]
 slap_hosts <- table(slap_df$host)
 slap_hosts_ordered <- slap_hosts[order(slap_hosts, decreasing = TRUE)]
 proton(action = "server", host="194.29.178.16")
+
+#get slap's pw
+commands <- sapply(strsplit(bash_history, " "), "[[", 1)
+table(commands)
+proton(action = "login", login="slap", password="DHbb7QXppuHnaXGN")
