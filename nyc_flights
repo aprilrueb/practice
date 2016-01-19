@@ -1,0 +1,27 @@
+library(nycflights)
+sanfran <- flights[flights$dest=="SFO",]
+table(sanfran$origin)
+
+newark_sf <- sanfran[sanfran$origin=="EWR",]
+airlines_newark_sf <- newark_sf$carrier
+table(airlines_newark_sf)
+
+jfk_sf <- sanfran[sanfran$origin=="JFK",]
+airlines_jfk_sf <- jfk_sf$carrier
+table(airlines_jfk_sf)
+
+flights_dest_ordered <- table(flights$dest)
+flights_dest_ordered <- flights_dest_ordered[order(flights_dest_ordered, decreasing=TRUE)]
+hist(flights_dest_ordered, breaks=20)
+
+long_flights <- flights[flights$air_time>=300,]
+table(long_flights$dest)
+
+get_origin_dest_carriers <- function(origin, dest, flights){
+
+  flights_dest <- flights[flights$dest == dest, ]
+  flights_dest_origin <- flights_dest[flights_dest$origin == origin, ]
+  carriers <- table(flights_dest_origin$carrier)
+  return(carriers)
+
+}
